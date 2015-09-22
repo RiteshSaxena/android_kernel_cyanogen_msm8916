@@ -9,4 +9,5 @@ if ARCH_MSM
 source "drivers/platform/ckt/Kconfig"
 source "drivers/platform/longcheer/Kconfig"
 source "drivers/platform/msm/Kconfig"
+source "drivers/platform/haier/Kconfig"
 endif
