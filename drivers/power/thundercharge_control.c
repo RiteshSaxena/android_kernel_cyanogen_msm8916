@@ -19,7 +19,7 @@
 #include <linux/kernel.h>
 #include "thundercharge_control.h"
 
-#define ENABLED             1
+#define ENABLED             0
 #define AC_CURRENT          1250
 #define USB_CURRENT         500
 #define MAX_VBUS_CURRENT    1500
