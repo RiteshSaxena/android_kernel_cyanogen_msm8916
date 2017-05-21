@@ -499,7 +499,11 @@ static struct od_dbs_tuners *alloc_tuners(struct cpufreq_policy *policy)
 	tuners = kzalloc(sizeof(*tuners), GFP_KERNEL);
 	if (!tuners) {
 		pr_err("%s: kzalloc failed\n", __func__);
+#ifdef CONFIG_MACH_JALEBI
+		return -ENOMEM;
+#else
 		return ERR_PTR(-ENOMEM);
+#endif
 	}
 
 	cpu = get_cpu();
