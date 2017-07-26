@@ -1370,30 +1370,25 @@ static void fan5405_external_power_changed(struct power_supply *psy)
 	else
         #ifdef CONFIG_QUICK_CHARGE
         {
-           if (!((prop.intval / 1000) == 0))
-           {
-	      if (QC_Toggle == 1) 
-	      {
-		 // If Current (mA) is Equal to 500 mA, then USB is Connected.
-                 if ((prop.intval / 1000) == 500) 
-		 {
-		    // Raise USB-Charging Current (mA) to 1000 mA (Maximum Supported).
-                    pr_info("Using Custom USB Current (mA) %d", 1000);
-                    chip->set_ivbus_max = 1000;
-                 }
-                 else 
-	         {
-                     pr_info("Using Quick Charge Current (mA) %d", Dynamic_Current);
-                     chip->set_ivbus_max = Dynamic_Current;
-                 }
-              }
-              else
-		  // If Quick Charge is Disabled, Restore Default Value of Current (mA). 
-                  chip->set_ivbus_max = prop.intval / 1000;
-           }
-	   else
-	       chip->set_ivbus_max = 0;
-	}
+	    if (QC_Toggle == 1) 
+	    {
+	       // If Current (mA) is Equal to 500 mA, then USB is Connected.
+               if ((prop.intval / 1000) == 500) 
+	       {
+		  // Raise USB-Charging Current (mA) to 1000 mA (Maximum Supported).
+                  pr_info("Using Custom USB Current (mA) %d", 1000);
+                  chip->set_ivbus_max = 1000;
+               }
+               else 
+	       {
+                   pr_info("Using Quick Charge Current (mA) %d", Dynamic_Current);
+                   chip->set_ivbus_max = Dynamic_Current;
+               }
+            }
+            else 
+		// If Quick Charge is Disabled, Restore Default Value of Current (mA).
+                chip->set_ivbus_max = prop.intval / 1000;
+        }
 	#else
 	    // If Quick Charge is Not Compiled, Leave Current (mA) Value Untouched.
 	    chip->set_ivbus_max = prop.intval / 1000;
