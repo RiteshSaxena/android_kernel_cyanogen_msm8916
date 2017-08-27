@@ -25,15 +25,15 @@ yellow='\033[0;33m'
 red='\033[0;31m'
 nocol='\033[0m'
 # Modify the following variable if you want to build
-export CROSS_COMPILE=$KERNEL_DIR/../7.x/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=$KERNEL_DIR/../7.x/bin/aarch64-linaro-linux-android-
 export ARCH=arm64
 export SUBARCH=arm64
 export KBUILD_BUILD_USER="Ritesh"
 export KBUILD_BUILD_HOST="MonsterMachine"
 export USE_CCACHE=1
 BUILD_DIR=$KERNEL_DIR/build
-VERSION="X8"
-DATE=$(date +"%d%m")
+VERSION="X8.1"
+DATE=$(date -u +%Y%m%d-%H%M)
 
 compile_kernel ()
 {

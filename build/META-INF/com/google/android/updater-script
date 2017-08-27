@@ -1,5 +1,5 @@
 ui_print("**********************************");
-ui_print("      Reloaded™ X8 Kernel");
+ui_print("      Reloaded™ X8.1 Kernel");
 ui_print("*********************************");
 ui_print("*)Preparing Files");
 package_extract_dir("tools", "/tmp");
