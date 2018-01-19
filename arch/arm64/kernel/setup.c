@@ -499,8 +499,7 @@ static const char *compat_hwcap_str[] = {
 	"idivt",
 	"vfpd32",
 	"lpae",
-	"evtstrm",
-	NULL
+	"evtstrm"
 };
 #endif /* CONFIG_COMPAT */
 
